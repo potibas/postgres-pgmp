@@ -8,7 +8,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/dvarrazzo/pgmp.git && \
     cd pgmp && make && make install
 
-FROM postgres:16
+FROM postgres:16.2
 
 COPY --from=0 /usr/lib/postgresql/16/lib/pgmp.so /usr/lib/postgresql/16/lib/pgmp.so
 COPY --from=0 /usr/share/postgresql/16/extension/pgmp.control /usr/share/postgresql/16/extension/pgmp.control
